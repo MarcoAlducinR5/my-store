@@ -5,6 +5,13 @@
 <!-- Incrementar la edad -->
 <p>Edad {{ person.age }}</p>
 <button (click)="increaseAge()">Age++</button>
+<!-- Leer en que posicion se encuentra un div con barra de desplazamiento -->
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti earum beatae labore porro ratione. Velit maxime autem, modi dolor consequuntur perspiciatis nemo deserunt. Eos omnis veritatis, cumque hic ad quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, quis a veniam earum nam commodi excepturi quia reprehenderit ullam atque? Magni dolore quod corporis officiis, suscipit sunt placeat quas non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ab atque unde vero blanditiis consequatur dolores! Aliquid illum suscipit voluptatem ducimus sapiente, quia laboriosam inventore recusandae reiciendis asperiores nihil? Quaerat.</p>
+</div>
+<!-- Detectar cada ves que se teclea obteniendo su valor -->
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+<p>Nombre {{ person.name }}</p>
 <hr/>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
