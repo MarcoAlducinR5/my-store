@@ -13,6 +13,16 @@
 <input type="text" [value]="person.name" (keyup)="changeName($event)">
 <p>Nombre {{ person.name }}</p>
 <hr/>
+<!-- Mensaje de alerta cuando hace doble click -->
+<div (dblclick)="dobleClic($event)">{{ dobleClick }}</div>
+<hr/>
+<!-- Cuando pasa el mouse cambia de estilo el elemento <p> con 2 eventos en el mismo elemento -->
+<p (mouseover)="pasaElMouse($event)" (mouseout)="alejaElMouse($event)" class="fondo">{{ texto1 }}</p>
+<hr/>
+<!-- Detecta si la caja de texto esta seleccionada o no -->
+<input type="text" [value]="person.name" (focus)="enfoque($event)" (blur)="desenfoque($event)">
+<div >{{ mensaje }}</div>
+<hr/>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <input type="text" [value]="person.name">
