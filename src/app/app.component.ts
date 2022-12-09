@@ -18,4 +18,12 @@ export class AppComponent {
     age: this.age,
     avatar: this.img
   }
+
+  //Manejo de eventos a componentes
+  toggleButton(){
+    this.btnDisabled = !this.btnDisabled;
+  }
+  increaseAge(){
+    this.person.age += 1;
+  }
 }
