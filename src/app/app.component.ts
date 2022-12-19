@@ -11,6 +11,20 @@ export class AppComponent {
   age = 18;
   img = "https://www.dzoom.org.es/wp-content/uploads/2012/03/bosque-17-810x540.jpg";
 
+  names: string[] = ['Nico', 'Juli', 'Santi'];
+
+  newName = '';
+
+  letras: string = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+  numero: number = Math.floor(Math.random()*this.letras.length);
+  cosas: any[] = [];
+  aspectos: string[] = ['Alimentos', 'Frutas y Verduras',
+    'Palabras en Ingles', 'Acciones', 'Articulos Escolares', 'Ropa',
+    'Profesiones', 'Marcas', 'Personajes de Peliculas', 'Cantantes',
+    'Actores y Actrices', 'Tecnicismos', 'Paises', 'Nombres',
+    'Apellidos', 'Ciudades de México', 'Ciudades del mundo'];
+  registro = this.aspectos[Math.floor(Math.random()*this.aspectos.length)];
+
   //Modificar las propiedades de elementos de HTML
   btnDisabled = true;
   person = {
@@ -62,5 +76,39 @@ export class AppComponent {
   desenfoque(event: Event){
     const element = event.target as HTMLElement;
     this.mensaje = "¡Chin, ya no tiene enfoque! =( Haz clic de nuevo";
+  }
+
+  addName(){
+    this.names.push(this.newName);
+    this.newName = "";
+  }
+  deleteName(index: number){
+    this.names.splice(index,1);
+  }
+
+  error: string = '';
+
+  agregar(){
+    if(this.newName.charAt(0).toLowerCase() == this.letras.charAt(this.numero)){
+      this.cosas.push(this.newName);
+      this.btnDisabled = false;
+    }
+    else if(this.newName.charAt(0) == this.letras.charAt(this.numero).toLowerCase()){
+      this.cosas.push(this.newName);
+      this.btnDisabled = false;
+    }
+    else if(this.newName.charAt(0) == this.letras.charAt(this.numero)){
+      this.cosas.push(this.newName);
+      this.btnDisabled = false;
+    }
+    else{
+      this.error = "Ingrese con la letra " + this.letras.charAt(this.numero);
+      this.btnDisabled = true;
+    }
+
+    this.newName = "";
+  }
+  borrar(index: number){
+    this.cosas.splice(index,1);
   }
 }

@@ -1,3 +1,35 @@
+<h1>Practicando con *ngFor y *ngIf</h1>
+<div>Registre {{ registro }} con la letra {{ letras.charAt(numero) }}</div>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="agregar()">Agregar</button>
+<p *ngIf="btnDisabled">{{ error }}</p>
+  <ul>
+    <li *ngIf="cosas.length === 0">No hay cosas agregadas</li>
+    <li *ngFor="let cosa of cosas; index as i">
+      {{i}} {{ cosa }}
+      <button (click)="borrar(i)">Borrar</button>
+    </li>
+  </ul>
+<hr/>
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
+  <ul>
+    <li *ngIf="names.length === 0">No hay nombres</li>
+    <li *ngFor="let name of names; index as i">
+      {{i}} {{ name }}
+      <button (click)="deleteName(i)">Delete</button>
+    </li>
+  </ul>
+<hr/>
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<p *ngIf="person.name === 'nicolas'">Soy Nicolas</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian</p>
+<ng-template #myBlock>
+  <p>Bloque de else</p>
+</ng-template>
+<hr/>
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
