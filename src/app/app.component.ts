@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './product.model';
+import { Partidos } from './partidos.model';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,57 @@ export class AppComponent {
 
   newName = '';
 
+  partidos: Partidos[] = [
+    {
+      nombre: 'Partido Acción Nacional (PAN)',
+      fundador: 'Manuel Gómez Morin',
+      fecha: 1939,
+      texto: 'es un partido político mexicano cristiano, de doctrina política conservadora, afín a las ideas de la democracia cristiana. Sus estatutos establecen que su posición ideológica es el humanismo cristiano. Diversos analistas lo definen como un partido de derecha. Los miembros de este partido se denominan panistas.',
+      logo: './assets/images/partidos/PAN_logo_(Mexico).svg'
+    },
+    {
+      nombre: 'Partido Revolucionario Institucional (PRI)',
+      fundador: 'Plutarco Elías Calles',
+      fecha: 1929,
+      texto: 'es un partido político mexicano de centroderecha. Fue fundado el 4 de marzo de 1929 bajo el nombre de Partido Nacional Revolucionario (PNR) por el expresidente Plutarco Elías Calles. En 1938 fue reconstituido como Partido de la Revolución Mexicana (PRM) y en 1946 fue refundado, adoptando su nombre actual. Fue el partido gobernante en México durante setenta años consecutivos, de 1930 a 2000. En 1988 sufrió su mayor escisión, con la separación de la Corriente Democrática, que derivó en la creación del Partido de la Revolución Democrática (PRD).',
+      logo: './assets/images/partidos/PRI_logo_(Mexico).svg'
+    },
+    {
+      nombre: 'Partido de la Revolución Democrática (PRD)',
+      fecha: 1989,
+      texto: 'es un partido político mexicano, fundado el 5 de mayo de 1989, con una ideología política socialdemócrata17​. En las elecciones presidenciales de 2006 y 2012 encabezó coaliciones que los colocaron como la segunda fuerza electoral. Los militantes de este partido se conocen popularmente como perredistas. Su lema es "¡Democracia ya, Patria para todos!".18​ El partido es miembro de la Internacional Socialista.',
+      logo: './assets/images/partidos/PRD_logo_(Mexico).svg.png'
+    },
+    {
+      nombre: 'Partido del Trabajo (PT)',
+      fecha: 1990,
+      texto: 'es un partido político de México, fundado el 8 de diciembre de 1990. Es un partido de izquierda y cuenta con el apoyo de diversos sectores populares regionales e internacionales. Su lema es «Unidad Nacional, ¡Todo el poder al Pueblo!».',
+      logo: './assets/images/partidos/PT_logo_(Mexico).svg.png'
+    },
+    {
+      nombre: 'Partido Verde Ecologista de México (PVEM, Verde)',
+      fundador: 'Jorge González Torres',
+      fecha: 1986,
+      texto: 'es un partido político mexicano. Fue el cuarto partido político en México por número de representantes en el congreso de este país. La mayoría de estas posiciones las ha obtenido gracias a sus alianzas estratégicas con otros partidos. En las elecciones federales del año 2000 formó, junto con el Partido Acción Nacional (PAN), la Alianza por el Cambio, la cual resultó vencedora de los comicios y consiguió la presidencia de la República para el candidato del PAN, Vicente Fox. A partir del año 2003 ha hecho alianzas con el Partido Revolucionario Institucional con el que en 2012 ganó la presidencia con Enrique Peña Nieto con el 38% de los votos. Actualmente tienen lemas distintos en lo que destacan: El verde Sí cumple, Súmate a la Ola verde, y Yo Soy Verde.',
+      logo: './assets/images/partidos/Logo_Partido_Verde_(México).svg'
+    },
+    {
+      nombre: 'Movimiento Ciudadano (MC)',
+      fundador: 'Dante Delgado Rannauro',
+      fecha: 1997,
+      texto: 'Movimiento Ciudadano es un partido político mexicano de centroizquierda. Fue fundado el 1 de agosto de 1999 bajo el nombre Convergencia por la Democracia. En 2002 se acortó el nombre a Convergencia y en 2011 adoptó su nombre actual.',
+      logo: './assets/images/partidos/800px-Logo_Partido_Movimiento_Ciudadano_(México).svg.png'
+    },
+    {
+      nombre: 'Movimiento Regeneración Nacional (MORENA)',
+      fundador: 'Andrés Manuel López Obrador',
+      fecha: 2012,
+      texto: 'es un partido político mexicano de izquierda. Fue creado el 2 de octubre de 2011 como un movimiento político y social impulsado por Andrés Manuel López Obrador, como parte de su campaña presidencial en las elecciones federales de 2012. Más tarde el movimiento se constituyó como una asociación civil el 20 de noviembre de 2012. El 9 de julio de 2014 el Instituto Nacional Electoral emitió la resolución que le otorgó su registro como partido político nacional, el cual tendría efectos constitutivos a partir del 1 de agosto de 2014',
+      logo: './assets/images/partidos/Morena_logo_(Mexico).svg'
+    }
+  ]
+
+  //Muestra de elementos de un array
   products: Product[]= [
     {
       name: 'EL mejor juguete',
@@ -113,6 +165,7 @@ export class AppComponent {
     this.mensaje = "¡Chin, ya no tiene enfoque! =( Haz clic de nuevo";
   }
 
+  //Agregar elementos a un arreglo
   addName(){
     this.names.push(this.newName);
     this.newName = "";

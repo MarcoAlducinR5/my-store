@@ -1,3 +1,14 @@
+<h1>Practicando con *ngFor Obj</h1>
+<div>
+  <div *ngFor="let partido of partidos">
+    <img width="250" [src]="partido.logo" alt="image">
+    <h2>{{ partido.nombre }}</h2>
+    <p *ngIf="partido.fundador != null">Fundador: {{ partido.fundador }}</p>
+    <p>Año de fundacion: {{ partido.fecha }}</p>
+    <p>El {{ partido.nombre }} {{ partido.texto }}</p>
+  </div>
+</div>
+<hr/>
 <h1>*ngFor Obj</h1>
 <div>
   <div *ngFor="let product of products">
