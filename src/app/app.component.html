@@ -1,3 +1,34 @@
+<h1>Jugando Basta</h1>
+  <div>Juegue llenando los campos acorde con la letra {{ aleatorio }}</div>
+  <p>Nombre <input type="text" required [(ngModel)]="nameB" /> Apellido
+    <input type="text" required [(ngModel)]="lastNameB" /> Animal
+    <input type="text" required [(ngModel)]="animalB" /></p>
+  <p>Flor o Fruto <input type="text" required [(ngModel)]="fruitB" />
+    Ciudad o Pais <input type="text" required [(ngModel)]="cityB" />
+    Cosa <input type="text" required [(ngModel)]="objectB" /></p>
+  <p>Color <input type="text" required [(ngModel)]="colorB" /> Cancion
+    <input type="text" required [(ngModel)]="songB" /></p>
+  <button (click)="agregarBasta()">Agregar</button>
+  <table>
+    <thead>
+      <th>Letra</th><th>Nombre</th><th>Apellido</th><th>Animal</th>
+      <th>Flor o Fruto</th><th>Ciudad o Pais</th><th>Cosa</th>
+      <th>Color</th><th>Cancion</th>
+    </thead>
+    <tbody>
+      <tr *ngIf="basta.length === 0">
+        <td colspan="9">No hay datos que mostrar</td>
+      </tr>
+      <tr *ngFor="let dato of basta; index as i">
+        <td>{{ dato.letra }}</td><td>{{ dato.nombre }}</td>
+        <td>{{ dato.apellido }}</td><td>{{ dato.animal }}</td>
+        <td>{{ dato.florFruto }}</td><td>{{ dato.ciudadPais }}</td>
+        <td>{{ dato.cosa }}</td><td>{{ dato.color }}</td>
+        <td>{{ dato.cancion }}</td>
+      </tr>
+    </tbody>
+  </table>
+<hr/>
 <h1>ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">

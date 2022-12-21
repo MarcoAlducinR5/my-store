@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './product.model';
 import { Partidos } from './partidos.model';
+import { Basta } from './basta.model';
 
 @Component({
   selector: 'app-root',
@@ -199,4 +200,29 @@ export class AppComponent {
   borrar(index: number){
     this.cosas.splice(index,1);
   }
+
+  //////////////////////////////////////////////////////////////
+  basta: Basta[] = []
+
+  nameB: string = ''; lastNameB: string = ''; animalB: string = '';
+  fruitB: string = ''; cityB: string = ''; objectB: string = '';
+  colorB: string = ''; songB: string = '';
+
+  abecedario = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+  num = Math.floor(Math.random()*this.abecedario.length);
+  aleatorio = this.abecedario.charAt(this.num);
+
+  agregarBasta(){
+    this.basta.push({
+      letra: this.aleatorio, nombre: this.nameB, apellido: this.lastNameB,
+      animal: this.animalB, florFruto: this.fruitB, ciudadPais: this.cityB,
+      cosa: this.objectB, color: this.colorB, cancion: this.songB
+    });
+
+    this.aleatorio = this.abecedario.charAt(this.num);
+    this.nameB = this.lastNameB = this.lastNameB = this.animalB =
+    this.fruitB = this.cityB = this.objectB = this.colorB =
+    this.songB = "";
+  }
+
 }
