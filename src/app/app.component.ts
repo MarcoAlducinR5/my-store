@@ -9,6 +9,7 @@ import { Basta } from './basta.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  widthImg = 10;
   //Interpolacion de valores
   name = 'Marco';
   age = 18;
