@@ -10,6 +10,7 @@ import { Basta } from './basta.model';
 })
 export class AppComponent {
   widthImg = 10;
+  color = "black";
   //Interpolacion de valores
   name = 'Marco';
   age = 18;

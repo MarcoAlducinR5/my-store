@@ -53,13 +53,23 @@
   }
 }
 
-.message-error{
+.message-error, .mensajeError{
   background: red;
   color:white;
   opacity: 0;
   transition: all linear .5s;
   &.invalid{
     opacity: 1;
+  }
+}
+
+.practica1, .practica2{
+  opacity: 0;
+  transition: all linear .5s;
+  &.valido{
+    opacity: 1;
+    background-color: green;
+    color: white;
   }
 }
 

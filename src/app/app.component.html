@@ -1,3 +1,13 @@
+<h1>Practicando con Class & Style</h1>
+<p>Nombre {{ person.name }}</p>
+<input type="text" #practica1="ngModel" [(ngModel)]="person.name" />
+<p class="practica1" [class.valido]="person.name === 'nicolas'">Soy nicolas</p>
+<p class="practica2" [class.valido]="person.name === 'julian'">Soy julian</p>
+<hr/>
+<p>Cambiar el color del texto</p>
+<input type="text" #colorTexto="ngModel" [(ngModel)]="color" />
+<p [style.background]="color == 'black' ? 'white' : 'black'" [style.color]="colorTexto.invalid ? 'white' : color ">{{color}}</p>
+<hr/>
 <h1>Class & Style</h1>
 <input type="text" required #nameInput2 ="ngModel" [(ngModel)]="person.name" />
 <p class="message-error" [class.invalid]="nameInput2.invalid">
@@ -83,9 +93,9 @@
 <hr/>
 <h1>Practicando con *ngFor y *ngIf</h1>
 <div>Registre {{ registro }} con la letra {{ letras.charAt(numero) }}</div>
-<input type="text" required [(ngModel)]="newName" />
+<input type="text" required #arreglo="ngModel" [(ngModel)]="newName" />
 <button (click)="agregar()">Agregar</button>
-<p *ngIf="btnDisabled">{{ error }}</p>
+<p *ngIf="btnDisabled == true" class="mensajeError" [class.invalid]="arreglo.invalid">{{ error }}</p>
   <ul>
     <li *ngIf="cosas.length === 0">No hay cosas agregadas</li>
     <li *ngFor="let cosa of cosas; index as i">
