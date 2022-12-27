@@ -61,9 +61,10 @@
 <p *ngIf="person.name === 'camilo'">La persona es camilo</p> -->
 <hr/>
 <h1>Practicando con *ngFor Obj</h1>
-<div>
+<p>Aplicando estilos al listado de partidos</p>
+<div class="listado--grid">
   <div *ngFor="let partido of partidos">
-    <img width="250" [src]="partido.logo" alt="image">
+    <img [src]="partido.logo" alt="image">
     <h2>{{ partido.nombre }}</h2>
     <p *ngIf="partido.fundador != null">Fundador: {{ partido.fundador }}</p>
     <p>Año de fundacion: {{ partido.fecha }}</p>

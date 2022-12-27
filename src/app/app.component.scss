@@ -7,6 +7,38 @@
 .fondo{
   background: white;
 }
+
+.listado--grid{
+  display: flex;
+  flex-direction: column;
+  div{
+    img{
+      width: 100%;
+      border-radius: 10px;
+    }
+    h2, p{
+      margin: 0;
+    }
+  }
+}
+
+//Celular horizontal
+@media screen and (min-width: 320px) {
+  .listado--grid{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (min-width: 40em){
+  .listado--grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+  }
+}
+
 .products--grid{
   display: flex;
   flex-direction: column;
