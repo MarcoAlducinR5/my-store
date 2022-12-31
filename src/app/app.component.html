@@ -1,4 +1,51 @@
-<h1>Class & Style</h1>
+<h1>Practicando con NgClass & NgStyle</h1>
+<p>Cambiando estilo del texto</p>
+<div class="estilos" >
+  <div>
+      <label for="">Estilos </label>
+      <input type="button" value="Negrita" (click)="negrita()">
+      <input type="button" value="Cursiva" (click)="cursiva()">
+      <input type="button" value="Subrayada" (click)="subrayada()">
+    <p>
+      <label for="">Color de Letra </label>
+      <input type="color" [(ngModel)]="estilos.colorLetra" />
+      <label for=""> Color de Fondo </label>
+      <input type="color" [(ngModel)]="estilos.background" />
+    </p>
+    <p>
+      <label for="">Alto </label>
+      <input type="number" [(ngModel)]="estilos.width" />
+      <label for=""> Ancho </label>
+      <input type="number" [(ngModel)]="estilos.height" />
+    </p>
+    <p>
+      <label for="">Tamaño de Letra </label>
+      <input type="number" [(ngModel)]="estilos.size" />
+      <label for=""> Fuente </label>
+      <select name="" id="" [(ngModel)]="estilos.tipo">
+        <option *ngFor="let tipo of tipos; index as i" >
+          {{tipo}}
+        </option>
+      </select>
+    </p>
+  </div>
+  <div>
+    Modifica el texto
+    <p></p>
+    <textarea cols="60" rows="10" [(ngModel)]="estilos.textoEstilo"></textarea>
+  </div>
+  <div [ngStyle]="{
+    'width.px': estilos.width, 'height.px': estilos.height,
+    'background-color': estilos.background, 'display': 'block',
+    'color': estilos.colorLetra, 'font-weight': estilos.negrita,
+    'font-style': estilos.cursiva, 'text-decoration': estilos.subrayado,
+    'font-size.pt': estilos.size, 'font-family': estilos.tipo
+  }">
+    {{estilos.textoEstilo}}
+  </div>
+</div>
+<hr />
+<h1>NgClass & NgStyle</h1>
 <input type="text" required #nameInput4 ="ngModel" [(ngModel)]="person.name" />
 <hr class="line-error" [ngClass]="{
   'valid': nameInput4.valid,
@@ -27,7 +74,7 @@
 <p class="practica1" [class.valido]="person.name === 'nicolas'">Soy nicolas</p>
 <p class="practica2" [class.valido]="person.name === 'julian'">Soy julian</p>
 <hr/>
-<p>Cambiar el color del texto</p>
+<p>Cambiar el color del texto escribiendo el nombre del color</p>
 <input type="text" #colorTexto="ngModel" [(ngModel)]="color" />
 <p [style.background]="color == 'black' ? 'white' : 'black'" [style.color]="colorTexto.invalid ? 'white' : color ">{{color}}</p>
 <hr/>

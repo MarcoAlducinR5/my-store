@@ -26,6 +26,34 @@ export class AppComponent {
     background: 'red'
   };
 
+  estilos= {
+    textoEstilo:
+    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eos ipsum similique! Laudantium harum voluptatem libero perspiciatis eius nihil quae. Accusamus pariatur ipsam est minima recusandae alias molestiae vero perspiciatis.',
+    width: 100, height: 100, size: 10,
+    background: 'red', colorLetra: 'white',
+    negrita: '', cursiva: '', subrayado: '',
+    tipo: ''
+  };
+
+  tipos: string[] = [
+    'Times New Roman', 'Snap ITC', 'Georgia', 'Arial', 'Verdana', 'Tahoma', 'Old English Text MT', 'Calibri', 'Impact', 'Castellar', 'Forte', 'Wide Latin', 'Courier New', 'Algerian', 'Edwardian Script ITC'
+  ];
+
+  negrita(){
+    if(this.estilos.negrita == ''){ this.estilos.negrita = 'bold'; }
+    else{ this.estilos.negrita = ''; }
+  }
+
+  cursiva(){
+    if(this.estilos.cursiva == ''){ this.estilos.cursiva = 'oblique'; }
+    else{ this.estilos.cursiva = ''; }
+  }
+
+  subrayada(){
+    if(this.estilos.subrayado == ''){ this.estilos.subrayado = 'underline'; }
+    else{ this.estilos.subrayado = ''; }
+  }
+
   partidos: Partidos[] = [
     {
       nombre: 'Partido Acción Nacional (PAN)',
