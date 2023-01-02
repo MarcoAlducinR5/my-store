@@ -16,6 +16,12 @@ export class AppComponent {
   age = 18;
   img = "https://www.dzoom.org.es/wp-content/uploads/2012/03/bosque-17-810x540.jpg";
 
+register = {
+  name: '',
+  email: '',
+  password: ''
+}
+
   names: string[] = ['Nico', 'Juli', 'Santi'];
 
   newName = '';
@@ -259,6 +265,10 @@ export class AppComponent {
     this.nameB = this.lastNameB = this.lastNameB = this.animalB =
     this.fruitB = this.cityB = this.objectB = this.colorB =
     this.songB = "";
+  }
+
+  onRegister(){
+    console.log(this.register);
   }
 
 }
