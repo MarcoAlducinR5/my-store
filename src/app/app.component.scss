@@ -63,6 +63,46 @@
   }
 }
 
+.myForm{
+  background-color: rgb(218, 208, 121);
+  align-content: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  label{
+    font-style: italic;
+    font-family: verdana;
+  }
+  input{
+    font-family: Tahoma;
+  }
+  .mensajeFormError, .mensajeNameError, .mensajeEmailError, .mensajePasswordError{
+    background: red;
+    color:white;
+    opacity: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    transition: all linear .5s;
+    width: 20%;
+    &.invalid, &.caracteres, &.mail, &.cantidad{
+      opacity: 1;
+    }
+  }
+  .lineForm-error{
+    height: 0;
+    border-bottom: 1px solid;
+    &.invalid{
+      border-color: red;
+    }
+    &.valid{
+      border-color: green;
+    }
+  }
+  button{
+    border-radius: 2em;
+    background-color: chocolate;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+  }
+}
+
 .practica1, .practica2{
   opacity: 0;
   transition: all linear .5s;

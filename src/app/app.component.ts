@@ -271,4 +271,48 @@ register = {
     console.log(this.register);
   }
 
+  textoErrorName = "";
+  estadoName: boolean = true;
+  format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  evaluarName(event: Event, dato: string){
+    const element = event.target as HTMLElement;
+    if(this.format.test(dato)){
+      this.textoErrorName = "Solo se permite letras y numeros";
+      this.estadoName = this.estadoName;
+    }
+    else{
+      this.textoErrorName = "";
+      this.estadoName = false;
+    }
+  }
+
+  textoErrorEmail = "";
+  estadoEmail: boolean = false;
+  correo = /^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$/;
+  evaluarEmail(event: Event, dato: string){
+    const element = event.target as HTMLElement;
+    if(this.correo.test(dato)){
+      this.textoErrorEmail = "";
+      this.estadoEmail = this.estadoEmail;
+    }
+    else{
+      this.textoErrorEmail = "Escribe un correo valido";
+      this.estadoEmail != this.estadoEmail;
+    }
+  }
+
+  textoErrorPassword = "";
+  estadoPassword: boolean = false;
+  validacion = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+  evaluarPassword(event: Event, dato: string){
+    const element = event.target as HTMLElement;
+    if(this.validacion.test(dato)){
+      this.textoErrorPassword = "";
+      this.estadoPassword = this.estadoPassword;
+    }
+    else{
+      this.textoErrorPassword = "La contraseña no cumple con los requisitos";
+      this.estadoPassword != this.estadoPassword;
+    }
+  }
 }

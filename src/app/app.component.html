@@ -1,20 +1,28 @@
 <h1>Formulario</h1>
-<form (ngSubmit)="onRegister()" #myForm="ngForm">
+<form (ngSubmit)="onRegister()" #myForm="ngForm" class="myForm">
   <div class="input-group">
-    <label for="name">Nombre</label>
-    <input type="text" name="name" required id="name" [(ngModel)]="register.name">
-    <p>Mensajes de error</p>
+    <label for="name">Nombre </label>
+    <input type="text" #nameForm="ngModel" name="name" required id="name" [(ngModel)]="register.name" (keyup)="evaluarName($event, nameForm.value)">
+    <p class="mensajeFormError" [class.invalid]="nameForm.invalid">Este campo es requerido</p>
+    <p class="mensajeNameError" [class.caracteres]="nameForm.invalid == estadoName">{{textoErrorName}}</p>
   </div>
   <div class="input-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" required id="email" [(ngModel)]="register.email">
-    <p>Mensajes de error</p>
+    <label for="email">Email </label>
+    <input type="email" #emailForm="ngModel" name="email" required  id="email" [(ngModel)]="register.email" (keyup)="evaluarEmail($event, emailForm.value)">
+    <p class="mensajeFormError" [class.invalid]="emailForm.invalid">Este campo es requerido</p>
+    <p class="mensajeEmailError" [class.mail]="emailForm.invalid == estadoEmail">{{textoErrorEmail}}</p>
   </div>
   <div class="input-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" required id="password" [(ngModel)]="register.password">
-    <p>Mensajes de error</p>
+    <label for="password">Password </label>
+    <input type="password" #passwordForm="ngModel" name="password" required id="password" [(ngModel)]="register.password" (keyup)="evaluarPassword($event, passwordForm.value)">
+    <p class="mensajeFormError" [class.invalid]="passwordForm.invalid">Este campo es requerido</p>
+    <p class="mensajePasswordError" [class.cantidad]="passwordForm.invalid == estadoPassword">{{textoErrorPassword}}</p>
   </div>
+  <p *ngIf="btnDisabled == true" class="mensajeError" [class.invalid]="arreglo.invalid">{{ error }}</p>
+  <hr class="lineForm-error" [ngClass]="{
+    'valid': myForm.valid,
+    'invalid': myForm.invalid
+  }"/>
   <button [disabled]="myForm.invalid" type="submit">Registrar</button>
   <button type="button">Accion</button>
 </form>
